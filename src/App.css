@@ -1,38 +1,439 @@
 .App {
-  text-align: center;
+  text-align: left;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6B7280;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .w-80 {
+    width: 320px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-width: 768px) {
+  .w-80 {
+    width: 100%;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+/* Code block styling */
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.5;
 }
 
-@keyframes App-logo-spin {
+/* Message bubble styling */
+.message-bubble {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Input area styling */
+textarea {
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* Focus states */
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Code copy button animation */
+.copy-button:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .text-xs {
+    font-size: 0.75rem;
+  }
+}
+
+/* Dark theme enhancements */
+.bg-gray-900 {
+  background-color: #111827;
+}
+
+.bg-gray-800 {
+  background-color: #1F2937;
+}
+
+.bg-gray-700 {
+  background-color: #374151;
+}
+
+.border-gray-700 {
+  border-color: #374151;
+}
+
+/* Message container responsive */
+@media (max-width: 1024px) {
+  .max-w-2xl {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .max-w-xl {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .max-w-lg {
+    max-width: 100%;
+  }
+}
+
+/* Sidebar responsive */
+@media (max-width: 1024px) {
+  .w-80 {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .w-80 {
+    width: 100%;
+  }
+}
+
+/* Conversation item hover effects */
+.conversation-item:hover {
+  background-color: rgba(55, 65, 81, 0.8);
+}
+
+/* Edit input styling */
+.edit-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.edit-input:focus {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+/* Icon button hover effects */
+.icon-button:hover {
+  background-color: rgba(156, 163, 175, 0.2);
+  border-radius: 4px;
+}
+
+/* Loading spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Message animations */
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Code block copy button */
+.code-copy-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.code-block:hover .code-copy-btn {
+  opacity: 1;
+}
+
+/* Mobile sidebar animations */
+.sidebar-slide {
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-slide-enter {
+  transform: translateX(-100%);
+}
+
+.sidebar-slide-enter-active {
+  transform: translateX(0%);
+}
+
+.sidebar-slide-exit {
+  transform: translateX(0%);
+}
+
+.sidebar-slide-exit-active {
+  transform: translateX(-100%);
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile header */
+.mobile-header {
+  backdrop-filter: blur(8px);
+  background-color: rgba(31, 41, 55, 0.95);
+}
+
+/* Responsive message bubbles */
+@media (max-width: 640px) {
+  .message-bubble {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-bubble {
+    max-width: 90%;
+  }
+}
+
+/* Touch-friendly buttons on mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .conversation-item {
+    min-height: 60px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Focus indicators for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Login page animations */
+.login-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown menu animations */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.dropdown-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-exit-active {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  transition: opacity 0.15s ease-in, transform 0.15s ease-in;
+}
+
+/* User menu styling */
+.user-menu {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Login form styling */
+.login-form input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  accent-color: #3B82F6;
+}
+
+/* Button loading state */
+.btn-loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Authentication error animations */
+.auth-error {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Session expired warning */
+.session-expired {
+  animation: pulse 2s infinite;
+  border-color: #EF4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Token validation indicator */
+.token-valid {
+  border-color: #10B981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Authentication required overlay */
+.auth-overlay {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Secure badge */
+.secure-badge {
+  background: linear-gradient(135deg, #10B981, #059669);
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* Password strength indicator */
+.password-strength {
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+  background-color: #EF4444;
+  width: 25%;
+}
+
+.password-strength.medium {
+  background-color: #F59E0B;
+  width: 50%;
+}
+
+.password-strength.strong {
+  background-color: #10B981;
+  width: 100%;
 }
